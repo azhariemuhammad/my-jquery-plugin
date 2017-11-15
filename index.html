@@ -10,27 +10,28 @@
   <body>
 
     <form action="" autocomplete="off">
-      <input type="text" name="invalid-email" placeholder="Your email address" value="admin@example" class="error">
+      <input type="text" name="invalid-email" placeholder="Your email address" value="" class="error">
       <span class="error">Email address is not valid.</span>
     </form>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="lib/validate-email.js"></script>
-
-    <!-- demos -->
-    <script>
-      var email = $("input[name='invalid-email']")
-      email.keyup(function() {
-        if (!email.emailValidator()) {
-          $(email).addClass("error").removeClass("success")
-          $(email).next().fadeIn()
-        } else {
-          $(email).addClass("success").removeClass("error")
-          $(email).next().fadeOut()
-        }
-      })
-    </script>
 
   </body>
 
+      <script src="js/jquery.min.js"></script>
+      <script src="lib/validate-email.js"></script>
+
+      <!-- demos -->
+      <script>
+        var email = $("input[name='invalid-email']")
+        email.keydown(function() {
+          if (!email.emailValidator(email)) {
+            $(email).addClass("error").removeClass("success")
+            $(email).next().fadeIn()
+          } else {
+            $(email).addClass("success").removeClass("error")
+            $(email).next().fadeOut()
+          }
+        })
+
+      </script>
 </html>
